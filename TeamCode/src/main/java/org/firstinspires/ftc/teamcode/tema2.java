@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @Autonomous(name="encoder1")
 public class tema2 extends LinearOpMode {
@@ -19,6 +20,9 @@ public class tema2 extends LinearOpMode {
         motor2 = hardwareMap.get(DcMotor.class , "motor2");
         motor3 = hardwareMap.get(DcMotor.class , "motor3");
         motor4 = hardwareMap.get(DcMotor.class , "motor4");
+
+        motor3.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor4.setDirection(DcMotorSimple.Direction.REVERSE);
 
         motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motor1.setTargetPosition(tickTarget);
