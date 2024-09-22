@@ -8,41 +8,48 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @Autonomous(name="encoder1")
 public class tema2 extends LinearOpMode {
 
-    DcMotor motor1;
-    DcMotor motor2;
-    DcMotor motor3;
-    DcMotor motor4;
+    DcMotor motorL1;
+    DcMotor motorL2;
+    DcMotor motorR3;
+    DcMotor motorR4;
     int tickTarget = 5000;
 
     @Override
+    public void runOpMode(){
+        motorL1 = hardwareMap.get(DcMotor.class, "motor1");
+        motorL2 = hardwareMap.get(DcMotor.class , "motor2");
+        motorR3 = hardwareMap.get(DcMotor.class , "motor3");
+        motorR4 = hardwareMap.get(DcMotor.class , "motor4");
+
+        motorR3.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorR4.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
+        motorL1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorL2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorR3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorR4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+    }
+
     public void waitForStart(){
-        motor1 = hardwareMap.get(DcMotor.class, "motor1");
-        motor2 = hardwareMap.get(DcMotor.class , "motor2");
-        motor3 = hardwareMap.get(DcMotor.class , "motor3");
-        motor4 = hardwareMap.get(DcMotor.class , "motor4");
 
-        motor3.setDirection(DcMotorSimple.Direction.REVERSE);
-        motor4.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorL1.setTargetPosition(tickTarget);
+        motorL1.setPower(1);
+        motorL1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motor1.setTargetPosition(tickTarget);
-        motor1.setPower(1);
-        motor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorL2.setTargetPosition(tickTarget);
+        motorL2.setPower(1);
+        motorL2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motor2.setTargetPosition(tickTarget);
-        motor2.setPower(1);
-        motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        motor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motor3.setTargetPosition(tickTarget);
-        motor3.setPower(1);
-        motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorR3.setTargetPosition(tickTarget);
+        motorR3.setPower(1);
+        motorR3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        motor4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motor4.setTargetPosition(tickTarget);
-        motor4.setPower(1);
-        motor4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorR4.setTargetPosition(tickTarget);
+        motorR4.setPower(1);
+        motorR4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
 
