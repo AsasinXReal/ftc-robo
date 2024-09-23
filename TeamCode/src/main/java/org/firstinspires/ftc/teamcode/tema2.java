@@ -16,10 +16,10 @@ public class tema2 extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        motorL1 = hardwareMap.get(DcMotor.class, "motor1");
-        motorL2 = hardwareMap.get(DcMotor.class , "motor2");
-        motorR3 = hardwareMap.get(DcMotor.class , "motor3");
-        motorR4 = hardwareMap.get(DcMotor.class , "motor4");
+        motorL1 = hardwareMap.get(DcMotor.class, "motorL1");
+        motorL2 = hardwareMap.get(DcMotor.class , "motorL2");
+        motorR3 = hardwareMap.get(DcMotor.class , "motorR3");
+        motorR4 = hardwareMap.get(DcMotor.class , "motorR4");
 
         motorR3.setDirection(DcMotorSimple.Direction.REVERSE);
         motorR4.setDirection(DcMotorSimple.Direction.REVERSE);
