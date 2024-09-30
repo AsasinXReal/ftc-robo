@@ -30,26 +30,31 @@ public class tema2 extends LinearOpMode {
         motorR3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorR4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-    }
+        waitForStart();
 
-    public void waitForStart(){
+        while(opModeIsActive() && motorL1.isBusy() && motorL2.isBusy() && motorR3.isBusy() && motorR4.isBusy()) {
 
-        motorL1.setTargetPosition(tickTarget);
-        motorL1.setPower(1);
-        motorL1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorL1.setTargetPosition(tickTarget);
+            motorL2.setTargetPosition(tickTarget);
+            motorR3.setTargetPosition(tickTarget);
+            motorR4.setTargetPosition(tickTarget);
 
-        motorL2.setTargetPosition(tickTarget);
-        motorL2.setPower(1);
-        motorL2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorL1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorL2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorR3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorR4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
+            motorL1.setPower(1);
+            motorL2.setPower(1);
+            motorR3.setPower(1);
+            motorR4.setPower(1);
 
-        motorR3.setTargetPosition(tickTarget);
-        motorR3.setPower(1);
-        motorR3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        }
 
-        motorR4.setTargetPosition(tickTarget);
-        motorR4.setPower(1);
-        motorR4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorL1.setPower(0);
+        motorL2.setPower(0);
+        motorR3.setPower(0);
+        motorR4.setPower(0);
     }
 
 
