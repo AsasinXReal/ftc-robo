@@ -10,51 +10,54 @@ public class tema2 extends LinearOpMode {
 
     DcMotor motorL1;
     DcMotor motorL2;
-    DcMotor motorR3;
-    DcMotor motorR4;
+    DcMotor motorR1;
+    DcMotor motorR2;
     int tickTarget = 5000;
 
     @Override
     public void runOpMode(){
         motorL1 = hardwareMap.get(DcMotor.class, "motorL1");
         motorL2 = hardwareMap.get(DcMotor.class , "motorL2");
-        motorR3 = hardwareMap.get(DcMotor.class , "motorR3");
-        motorR4 = hardwareMap.get(DcMotor.class , "motorR4");
+        motorR1 = hardwareMap.get(DcMotor.class , "motorR3");
+        motorR2 = hardwareMap.get(DcMotor.class , "motorR4");
 
-        motorR3.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorR4.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorR1.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorR2.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         motorL1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorL2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motorR3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motorR4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorR1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorR2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         waitForStart();
 
-        while(opModeIsActive() && motorL1.isBusy() && motorL2.isBusy() && motorR3.isBusy() && motorR4.isBusy()) {
-
             motorL1.setTargetPosition(tickTarget);
             motorL2.setTargetPosition(tickTarget);
-            motorR3.setTargetPosition(tickTarget);
-            motorR4.setTargetPosition(tickTarget);
+            motorR1.setTargetPosition(tickTarget);
+            motorR2.setTargetPosition(tickTarget);
 
             motorL1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motorL2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motorR3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motorR4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorR1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            motorR2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             motorL1.setPower(1);
             motorL2.setPower(1);
-            motorR3.setPower(1);
-            motorR4.setPower(1);
+            motorR1.setPower(1);
+            motorR2.setPower(1);
 
-        }
+            while(opModeIsActive() && motorL1.isBusy() && motorL2.isBusy() && motorR1.isBusy() && motorR2.isBusy())
+            {   telemetry.addData("Pozitie" , motorL1.getCurrentPosition());
+                telemetry.addData("Pozitie" , motorL2.getCurrentPosition());
+                telemetry.addData("Pozitie" , motorR1.getCurrentPosition());
+                telemetry.addData("Pozitie" , motorR2.getCurrentPosition());
 
+            }
         motorL1.setPower(0);
         motorL2.setPower(0);
-        motorR3.setPower(0);
-        motorR4.setPower(0);
+        motorR1.setPower(0);
+        motorR2.setPower(0);
     }
 
 
