@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp
     public class Controaleservo extends OpMode {
 
-        public Servo servo1;
+    public Servo servo1;
 
         public void init(){
 
-            servo1 = hardwareMap.get(Servo.class , "servobrat");
-            servo1.setPosition(0.5);
+            servo1 = hardwareMap.get(Servo.class , "servo1");
+            servo1.setPosition(0);
         }
 
         public void loop() {
@@ -21,10 +21,6 @@ import com.qualcomm.robotcore.hardware.Servo;
                 servo1.setPosition(1);}
             else if (gamepad1.b){
                 servo1.setPosition(0);}
-            else if (gamepad1.x){
-                servo1.setPosition(0.5);
-            }
-
 
         }
 
