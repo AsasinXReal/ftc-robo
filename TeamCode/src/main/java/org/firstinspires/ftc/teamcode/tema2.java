@@ -49,9 +49,6 @@ public class tema2 extends LinearOpMode {
 
             while(opModeIsActive() && motorL1.isBusy() && motorL2.isBusy() && motorR1.isBusy() && motorR2.isBusy())
             {   telemetry.addData("Pozitie" , motorL1.getCurrentPosition());
-                telemetry.addData("Pozitie" , motorL2.getCurrentPosition());
-                telemetry.addData("Pozitie" , motorR1.getCurrentPosition());
-                telemetry.addData("Pozitie" , motorR2.getCurrentPosition());
 
             }
         motorL1.setPower(0);

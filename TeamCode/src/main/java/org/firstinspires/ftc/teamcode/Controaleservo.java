@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp
+@TeleOp (name = "motoroase")
     public class Controaleservo extends OpMode {
 
     public Servo servo1;
@@ -17,9 +17,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 
         public void loop() {
 
-            if(gamepad1.a){
+            if(gamepad1.circle){
                 servo1.setPosition(1);}
-            else if (gamepad1.b){
+            else if (gamepad1.triangle){
                 servo1.setPosition(0);}
 
         }
