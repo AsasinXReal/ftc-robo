@@ -24,15 +24,19 @@ public class Bratrobo extends OpMode {
 //
         if(gamepad1.triangle)
             servomatura.setPower(1);
+        else 
+            servomatura.setPower(0);
 
         if(gamepad1.circle)
             servomatura.setPower(-1);
+        else
+            servomatura.setPower(0);
 
         if(gamepad2.square)
-
+            motorbrat.setPower(0.4);
 
         if(gamepad1.cross)
-
+            motorbrat.setPower(-0,4);
 
 
     }
