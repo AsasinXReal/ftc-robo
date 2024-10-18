@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Teste;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -11,7 +11,7 @@ public class Bratrobo extends OpMode {
 
     private CRServo servomatura;
     DcMotor motorbrat;
-    
+
     public void init(){
 
         servomatura = hardwareMap.get(CRServo.class , "servomatura");
@@ -24,9 +24,20 @@ public class Bratrobo extends OpMode {
 //
         if(gamepad1.triangle)
             servomatura.setPower(1);
+        else 
+            servomatura.setPower(0);
 
         if(gamepad1.circle)
             servomatura.setPower(-1);
+        else
+            servomatura.setPower(0);
+
+        if(gamepad2.square)
+            motorbrat.setPower(0.4);
+
+        if(gamepad1.cross)
+            motorbrat.setPower(-0,4);
+
 
     }
 
