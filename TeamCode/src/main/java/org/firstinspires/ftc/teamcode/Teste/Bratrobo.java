@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Teste;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -11,7 +11,7 @@ public class Bratrobo extends OpMode {
 
     private CRServo servomatura;
     DcMotor motorbrat;
-
+    
     public void init(){
 
         servomatura = hardwareMap.get(CRServo.class , "servomatura");
