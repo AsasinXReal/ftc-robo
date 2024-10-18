@@ -28,13 +28,6 @@ public class Bratrobo extends OpMode {
         if(gamepad1.circle)
             servomatura.setPower(-1);
 
-        if(gamepad2.square)
-
-
-        if(gamepad1.cross)
-
-
-
     }
 
 
